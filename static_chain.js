@@ -3,7 +3,8 @@ function main(){
 	function bigsub() { 
 		var a, b, c; 
 		function sub1 {
-			var a, d; a = b + c;
+			var a, d; 
+			a = b + c;
 			
 		} // end of sub1 
 		function sub2(x) {
