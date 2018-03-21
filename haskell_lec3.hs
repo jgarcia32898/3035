@@ -77,8 +77,8 @@ Prelude>:t head
 head :: [a] -> a
 
 
-- All variables have to begin with upper case, but these
-are lower case. They are type variables. They are like 
+- All types have to begin with upper case, but 'a'
+is lower case. They are type variables. They are like 
 Java generics type variables
 
 - head is a polymorphic function
