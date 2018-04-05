@@ -28,11 +28,12 @@ Fold takes a function that takes two parameters, an initial value
 
 For left folds (foldl):
 
-It then calls that function on the accumulator and the head
-of the list, producing a new value.
+It calls that function on the accumulator and the head
+of the list, producing a new value, updating the accumulator with
+the new value.
 
 Then it repeats the same thing with the same function, the accumulator
-as the value, and tail of the list passed in the time before.
+as the new value, and tail of the list passed in the time before.
 
 It will keep doing this until the list is traversed, producing a 
 single value.
@@ -43,9 +44,9 @@ foldl (+) 1 [2,3], which takes 1 and adds it to 2, producing
 a new accumulator 3, then calls
 foldl (+) 3 [3], which takes 3 and adds it to 3 and calls
 foldl (+) 6 [], which returns 6
-
-A more verbose way to code sum using lambdas
 -}
+
+--A more verbose way to code sum using lambdas
 
 sum' :: (Num a) => [a] -> a  
 sum' xs = foldl (\acc x -> acc + x) 0 xs  
@@ -101,13 +102,14 @@ ghci> scanl (flip (:)) [] [3,2,1]
 
 * $ *
 
-$ is a convenience function that just calls a function for you. It's implemented 
+$ is a convenience function that just calls a function for you with the parameter following the
+$. It's implemented 
 with:
 
 ($) :: (a -> b) -> a -> b  
 f $ x = f x  
 
-you pass in a function f, then $, the a param x, and it gives you f x
+you pass in a function f, then $, then a params x, y, ..., and it gives you f x y , etc.
 
 Its purpose is that it's low priority, allowing the elimination of parentheses
 Basically it says to apply f on the left only after everything on the right is 
@@ -189,12 +191,7 @@ fn x = ceiling (negate (tan (cos (max 50 x))))
 versus
 fn = ceiling . negate . tan . cos . max 50  
 
-
-* One last thing: indices 
-let a = "adkei"
-a !! 2 gives you the element at index 2
-
-
+Some useful functions for indices
 findIndex and findIndices give indices that pass the filter
 requires import Data.List (put at the top of your file)
 -}

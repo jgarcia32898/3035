@@ -93,12 +93,14 @@ It's a function that takes a number and subtracts
 4 from it. But, for convenience, it just means 
 negative 4. 
 
-So, to clarify, if you want to make a function that subtracts 4 
-from the number it gets as a parameter, partially 
-apply the subtract function like so: (subtract 4).
+So, to clarify, if you want to make a function that 
+subtracts 4 from the number it gets as a parameter, 
+partially apply the subtract function like so: 
+(subtract 4).
 
 btw, if you try to partially apply a function at
-the ghci prompt, (like multThree 4 5) you'll get an error, for ghci doesn't
+the ghci prompt, (like multThree 4 5) you'll get an error, 
+for ghci doesn't
 know how to print a function to the screen
 
 *Functions as parameters*
@@ -144,12 +146,12 @@ zipWith' _ _ [] = []
 zipWith' f (x:xs) (y:ys) = f x y : zipWith' f xs ys 
 
 {-
-Try:
-ghci> zipWith' (+) [4,2,5,6] [2,6,2,3]   
-ghci> zipWith' max [6,3,2,1] [7,3,1,5]  
-ghci> zipWith' (++) ["foo ", "bar ", "baz "] ["fighters", "hoppers", "aldrin"]    
-ghci> zipWith' (*) (replicate 5 2) [1..]   
-ghci> zipWith' (zipWith' (*)) [[1,2,3],[3,5,6],[2,3,4]] [[3,2,2],[3,4,5],[5,4,3]]  
+Try at prompt:
+zipWith' (+) [4,2,5,6] [2,6,2,3]   
+zipWith' max [6,3,2,1] [7,3,1,5]  
+zipWith' (++) ["foo ", "bar ", "baz "] ["fighters", "hoppers", "aldrin"]    
+zipWith' (*) (replicate 5 2) [1..]   
+zipWith' (zipWith' (*)) [[1,2,3],[3,5,6],[2,3,4]] [[3,2,2],[3,4,5],[5,4,3]]  
 -}
 
 -- Here's an implementation of flip, which just switches the 
@@ -199,15 +201,18 @@ filter p (x:xs)
     | p x       = x : filter p xs  
     | otherwise = filter p xs  
 
-ghci> filter (>3) [1,5,3,2,1,6,4,3,2,1]  
+at prompt:
+
+filter (>3) [1,5,3,2,1,6,4,3,2,1]  
 [5,6,4]  
-ghci> filter (==3) [1,2,3,4,5]  
+
+filter (==3) [1,2,3,4,5]  
 [3]  
-ghci> filter even [1..10]  
+filter even [1..10]  
 [2,4,6,8,10]  
-ghci> let notNull x = not (null x) in filter notNull [[1,2,3],[],[3,4,5],[2,2],[],[],[]]  
+let notNull x = not (null x) in filter notNull [[1,2,3],[],[3,4,5],[2,2],[],[],[]]  
 [[1,2,3],[3,4,5],[2,2]]  
-ghci> filter (`elem` ['a'..'z']) "u LaUgH aT mE BeCaUsE I aM diFfeRent"  
+filter (`elem` ['a'..'z']) "u LaUgH aT mE BeCaUsE I aM diFfeRent"  
 "uagameasadifeent"  
 
 Both map and filter can be accomplished with list
@@ -227,7 +232,7 @@ quicksort (x:xs) =
 -- that's divisible by 3829
 
 largestDivisible :: (Integral a) => a  
-largestDivisible = head (filter p [100000,99999..])  
+largestDivisible = head (filter p [99999, 99998..])  
     where p x = x `mod` 3829 == 0  
 
 {-

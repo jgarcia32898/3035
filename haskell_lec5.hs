@@ -37,7 +37,7 @@ etc, in all your guards, use a where clause after the guards, as
 in the example below
 -}
 
-bmiTell1 :: (RealFloat a) => a -> a -> String  
+bmiTell1 :: (RealFloat a) => a -> a -> String
 bmiTell1 weight height  
     | bmi <= skinny = "You're underweight"  
     | bmi <= normal = "You're supposedly normal" 
@@ -91,7 +91,7 @@ put the binding before the expression (opposite of where)-}
 cylinder :: (RealFloat a) => a -> a -> a  
 cylinder r h = 
     let sideArea = 2 * pi * r * h  
-        topArea = pi * r ^2  
+        topArea = pi * r ^ 2  
     in  sideArea + 2 * topArea  
 
 {- 
@@ -181,7 +181,9 @@ as to add something to an already existing function definition
 describeList :: [a] -> String  
 describeList xs = "The list is " ++ case xs of [] -> "empty."  
                                                [x] -> "a singleton list."   
-                                               xs -> "a longer list."  
+                                               xs -> "a longer list." 
+
+                         
 
 
 
