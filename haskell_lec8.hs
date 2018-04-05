@@ -1,3 +1,5 @@
+
+--btw, if you want to import the module Data.List to use its sort method:
 import Data.List
 
 {-
@@ -65,6 +67,7 @@ Use right folds when building up new lists from a list.
 
 map' :: (a -> b) -> [a] -> [b]  
 map' f xs = foldr (\x acc -> f x : acc) [] xs  
+
 
 -- foldl1 and foldr1 are just like the folds above, except no accumulator is entered,
 -- they assume the first accumulator is the first or last element of the list
@@ -187,6 +190,8 @@ Consider:
 sum' :: (Num a) => [a] -> a     
 sum' xs = foldl (+) 0 xs     
 versus
+
+
 fn x = ceiling (negate (tan (cos (max 50 x))))  
 versus
 fn = ceiling . negate . tan . cos . max 50  
