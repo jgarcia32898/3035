@@ -1,5 +1,5 @@
 {-
-**IO**
+**IO and Compiling a Haskell Program**
 Note: this code won't compile, it's just given a hs extension for syntax 
 coloring
 
