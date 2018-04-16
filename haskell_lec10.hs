@@ -11,7 +11,7 @@ at this link:
 https://downloads.haskell.org/~ghc/5.04/docs/html/users_guide/sec-install-windows.html
 If you are using Mac or Linux, do nothing.
 
-Try putting this code into a separate haskell file, helloworld.hs
+Try putting this code into a separate haskell file, hello_world.hs
 -}
 main = putStrLn "hello, world" 
 
@@ -20,7 +20,7 @@ Then open your linux or mac terminal, navigate to the folder
 that has your haskell file, and type this (except the $, that's 
 just the prompt, don't ever copy that for terminal commands):
 
-$ ghc --make helloworld 
+$ ghc --make hello_world 
 
 
 
