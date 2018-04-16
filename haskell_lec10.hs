@@ -7,12 +7,8 @@ coloring
 Setup:
 
 If you are using windows 10, follow the instructions
-at this link: https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/
-to install a bash shell
-
-If you are using Windows 8 and earlier, get a newer version of Windows,
-or install Ubuntu on your machine
-
+at this link: 
+https://downloads.haskell.org/~ghc/5.04/docs/html/users_guide/sec-install-windows.html
 If you are using Mac or Linux, do nothing.
 
 Try putting this code into a separate haskell file, helloworld.hs
