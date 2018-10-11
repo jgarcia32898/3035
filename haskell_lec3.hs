@@ -22,14 +22,19 @@ to declare types of functions
 - type the name of the function, ::, then the type going in, 
 ->, then the type going out
 After this, type the function definition like we did before
+-}
+removeNonUppercase :: [Char] -> [Char]
+removeNonUppercase st = [ c | c <- st, c `elem` ['A'..'Z']] 
 
-Prelude>removeNonUppercase :: [Char] -> [Char]
-Prelude>removeNonUppercase st = [ c | c <- st, c `elem` ['A'..'Z']]  
 
-- for functions with several parameters
+-- for functions with several parameters
 
-Prelude>addThree :: Int -> Int -> Int -> Int 
-Prelude>addThree x y z = x + y + z
+
+addThree :: Int -> Int -> Int -> Int 
+addThree x y z = x + y + z
+
+
+{-
 
 - The arrows are just separators, the last element in the
 type declaration is the return type, all the others are 
@@ -49,7 +54,7 @@ Prelude>:t addThree
 
 - e.g.:
 factorial :: Integer -> Integer
-factorial n = pruduct [1 .. n]
+factorial n = product [1 .. n]
 
 - Float -- single precision floating point (32 bits)
 - Double -- double precision floating point (64 bits)
@@ -103,7 +108,7 @@ Prelude>:t (==)
 => is a class constraint
 - Read the above as:
 "==" is defined as --
-"Take any two values that are members of the Eq class and return
+"Take any two values that are members of class that is in the Eq typeclass and return
 a boolean"
 
 - Some basic typeclasses:
@@ -145,7 +150,7 @@ Prelude> read "[1,2,3,4]" :: [Int]
 Prelude> read "(3, 'a')" :: (Int, Char)  
 
 - Enum -- sequentially ordered types, enumerable
-these work with cucc and pred (predecessor)
+these work with succ and pred (predecessor)
 
 Try:
 
@@ -180,7 +185,7 @@ Try:
 Prelude> :t 20  
 20 :: (Num t) => t  
 
-int, Integer, Float, and Double are Num's
+Int, Integer, Float, and Double are Num's
 
 Prelude> 20 :: Int  
 20  

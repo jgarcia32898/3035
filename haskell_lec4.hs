@@ -16,7 +16,7 @@ that fits is used,
 -- consider
 lucky :: (Integral a) => a -> String
 lucky 7 = "You won $100,000 at craps!"
-lucky x = "You lost everything. To continue, go to Auto Title Loans."
+lucky x = "You lost everything. To continue, go to Auto Title Loan."
 
 -- also consider
 sayMe :: (Integral a) => a -> String  
@@ -31,6 +31,10 @@ sayMe x = "Not between 1 and 5"
 factorial :: (Integral a) => a -> a
 factorial 0 = 1
 factorial n = n * factorial (n - 1)
+
+-- a wimpy, fake-non-recursive alternative
+factorialFake :: (Integral a) => a -> a
+factorialFake x = product [2..x]
 
 -- failure of pattern matching
 charName :: Char -> String  

@@ -1,0 +1,60 @@
+
+carry = 
+
+9-3-2
+2-3
+
+add 9 and 2 and carry = 11, which is greater than 9
+take 10 from this result, giving me 1, and make carry = 1
+make new node with value of 1
+
+move to next 
+add 3 + 3 + carry = 7, which is less than or equal to 9, so
+make carry = 0
+make new node with val 7, make it next of the previous node
+
+move to next
+since one of the nodes is null, just make a new node with the value of the existing current node + carry and make it next of previous node 
+
+note: at the end two possibilites: both null or one is null
+
+def add_lists(list1, list2):
+	if not list1:
+		return list2
+	if not list2:
+		return list1
+
+	carry = 0
+
+	#initialize sumlist
+	first_val = list1.val + list2.val 
+	if first_val > 9:
+		first_val -= 10
+		carry = 1
+	sumlist = Node(first_val)
+	sumrunner = sumlist
+	list1 = list1.next
+	list2 = list2.next
+
+	while list1 is not None or list2 is not None:
+		if list1 is None:
+			sumrunner.next = Node(list2.val + carry)
+			return sumlist
+		if list2 is None:
+			sumrunner.next = Node(list1.val + carry)
+			return sumlist
+
+		val = list1.val + list2.val + carry
+		if val > 9:
+			val -= 10
+			carry = 1
+		else:
+			carry = 0
+		sumlist.next = Node(val)
+		list1 = list1.next
+		list2 = list2.next
+		sumlist = sumlist.next
+
+	return sumlist
+
+

@@ -31,7 +31,8 @@ boomBangs alist = [if even x then "BOOM!" else "BANG!"
 
 fizzbuzz a b = [if x `mod` 15 == 0 then "FIZZBUZZ!" 
     else if x `mod` 3 == 0 then "FIZZ!" 
-    else if x `mod` 5 == 0 then "BUZZ!" else show x
+    else if x `mod` 5 == 0 then "BUZZ!" 
+    else show x
     | x <- [a .. b]]
 
 {-
@@ -55,7 +56,7 @@ length' l = sum[1 | _ <- l]
 
 -- removing lowercase from a string
 removeNonUppercase st = [ c | c <- st, c `elem` ['A'..'Z']]  
-
+--"YurastupidjerkOU AwhatthefyoudoinRyounumbskullE idon'tlikeuAwhateverWESOdontstandnearmeyougrodybombME"
 {-
 Tuples:
 - A Tuple, like a list, stores multiple values
@@ -110,8 +111,5 @@ let rightTriangles = [(a,b,c) | (a, b, c) <- triples, c^2 == b^2 + a^2]
 let ourTriangles = [(a,b,c) | (a, b, c) <- rightTriangles, a+b+c==24]
 
 Here's the one-liner
-let rightTriangles' = [ (a,b,c) 
-| c <- [1..10], b <- [1..c], 
-a <- [1..b], 
-a^2 + b^2 == c^2, a+b+c == 24] 
+rightTriangles' = [ (a,b,c) | c <- [1..10], b <- [1..c], a <- [1..b], a^2 + b^2 == c^2, a+b+c == 24] 
 -}

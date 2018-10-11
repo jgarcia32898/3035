@@ -3,7 +3,7 @@ Haskell:
 -A purely functional programming language
     * Variables are immutable, no program
     * state changes, no side effects
--Lazy, it evaluates a function only when it has to
+-Lazy, it evaluates a function or list only when it has to
 -Programs are a series of transformations on data
 -Reflects math more than the computer's architecture
 -All you can do is calculate something and return the result
@@ -18,10 +18,11 @@ follow the instructions. It comes with a Haskell compiler and a
 command line interactive mode (type ghci at your command line)
 
 -To write a script make a file with a text editor and give it an
--.hs extension. 
--To load a script, navigate to the folder that has the file at your 
--prompt and type :l yourscriptnamewithoutdoths
--To reload a script, tpe :r
+.hs extension. 
+-To load a script, at your normal prompt, navigate to the folder that 
+has the file, then open your ghci prompt, and type 
+:l yourscriptnamewithout.hs
+-To reload a script, type :r
 
 -When you get the interactive mode running you should see this:
 
@@ -39,15 +40,15 @@ doubleMe x = x + x
 
 doubleUs x y = x*2 + y*2
 
-doubleSmallNumber x = if x > 100
-                        then x
-                        else x*2 -- else is manditory, as it is an
+doubleSmallNumber x = if x > 100 
+                      then x 
+                      else x*2 -- else is manditory, as it is an
 --expression and always returns something
 doubleSmallNumberConcise x = (if x > 100 then x else x*2)
 
 area x = 3.14 * x * x
 
-hypo a b = a*a + b*b
+hypo_squared a b = a*a + b*b
 {-
 Lists:
 
@@ -60,11 +61,11 @@ let lostNumbers = [4,8,15,16,23,42]
 - to see the value, just type 
 lostNumbers  
 
-- You can use list literals, and add them with ++ (try these at the prompt)
+- You can use list literals, and concatenate them with ++ (try these at the prompt)
 [1,2,3,4] ++ [9,10,11,12]
 "hello" ++ " " ++ "world"  
 
-- When you add two lists, Haskell has to traverse the list starting from 
+- When you concatenate two lists, Haskell has to traverse the list starting from 
 left to right to put the second list at the end, so watch adding
 long strings
 
@@ -120,7 +121,7 @@ and the ending element, and it figures it out
 [2,4..100]
 
 You can also do this to go backward
-[20,19..1]
+
 
 And you can do it with floats
 [0.1, 0.2 .. 2]
