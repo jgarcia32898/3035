@@ -52,9 +52,8 @@ bmiTell1 weight height
 note that names defined with where are only locally visible
 make sure the names are aligned into a single column
 if you make fcns w several patterns, the where isn't shared 
-
-you can use where to pattern match
 -}
+
 bmiTell2 :: (RealFloat a) => a -> a -> String  
 bmiTell2 weight height  
     | bmi <= skinny = "You're underweight"   
@@ -100,8 +99,7 @@ That means they can be used anywhere expressions can be used
 
 
 Try this: 
-if ... then ... else ...
-ghci> 4 * (if 10 > 5 then 10 else 0) + 2 
+
 let ... in ... 
 ghci> 4 * (let a = 9 in a + 1) + 2  
 
