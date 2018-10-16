@@ -29,10 +29,8 @@ removeNonUppercase st = [ c | c <- st, c `elem` ['A'..'Z']]
 
 -- for functions with several parameters
 
-
 addThree :: Int -> Int -> Int -> Int 
 addThree x y z = x + y + z
-
 
 {-
 
@@ -53,19 +51,24 @@ Prelude>:t addThree
 - Integer -- unlimited length
 
 - e.g.:
+-}
+
 factorial :: Integer -> Integer
 factorial n = product [1 .. n]
 
+{-
 - Float -- single precision floating point (32 bits)
 - Double -- double precision floating point (64 bits)
 
 Try:
-Prelude>circumference :: Float -> Float  
-Prelude>circumference r = 2 * pi * r  
+-}
+circumference :: Float -> Float  
+circumference r = 2 * pi * r  
 
-Prelude>circumference' :: Double -> Double  
-Prelude>circumference' r = 2 * pi * r  
+circumference' :: Double -> Double  
+circumference' r = 2 * pi * r  
 
+{-
 Prelude>circumference 4.0 
 Prelude>circumference' 4.0 
 
@@ -108,8 +111,8 @@ Prelude>:t (==)
 => is a class constraint
 - Read the above as:
 "==" is defined as --
-"Take any two values that are members of class that is in the Eq typeclass and return
-a boolean"
+"Take any two values that are members of a class that is in the Eq 
+typeclass and return a boolean"
 
 - Some basic typeclasses:
 - Eq -- things that can be equal or not, it's definition includes 
