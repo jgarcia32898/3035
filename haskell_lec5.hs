@@ -5,7 +5,7 @@ Guards are an alternative to if statements. See bmi
 function below for syntax example. "othewise" is a 
 catchall often found at the end
 -}
-bmiTell :: (RealFloat a) => a -> String  
+bmiTell :: Float -> String  
 bmiTell bmi  
     | bmi <= 18.5 = "You're underweight"  
     | bmi <= 25.0 = "You're normal"  
@@ -67,9 +67,9 @@ bmiTell2 weight height
 
 -- consider this function
 initials :: String -> String -> String  
-initials firstname lastname = [f] ++ ". " ++ [l] ++ "."  
-    where (f:_) = firstname  
-          (l:_) = lastname  
+initials givenname surname = [f] ++ "." ++ [l] ++ "."  
+    where (f:_) = givenname  
+          (l:_) = surname  
 
 -- This function takes in first and last name and returns initials
 -- "where" bindings can be used here as well (though not as simple
@@ -183,7 +183,7 @@ describeList xs = "The list is " ++ case xs of [] -> "empty."
 
                          
 
-
+ 
 
 
 

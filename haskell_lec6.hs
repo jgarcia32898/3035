@@ -4,8 +4,7 @@
 Recursion: functions that use themeselves in their definitions
 
 Recursive functions have to end at some point, to do this, there 
-must be values that get passed into the function that are 
-not defined recursively: the value is determined directly. 
+must be values that are not defined recursively: they are determined directly. 
 These are base cases.
 
 Strategy: 
@@ -26,7 +25,7 @@ Some examples of recursion:
 Let's define our own maximum in Haskell, recursively
 
 Base case (list with one element): maximum of [a] is a
-Recursive case: maximum x:the_rest will be:
+Recursive case: maximum x:xs will be:
 x if it is greater than the max of the rest of the list
 Otherwise, it will be the max of the rest of the list
 
