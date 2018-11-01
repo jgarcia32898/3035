@@ -51,7 +51,6 @@ multThree 3 5 9 is the same as:
 The function's type could be:
 multThree :: (Num a) => a -> (a -> (a -> a))
 
-
 Try this: 
 ghci> let multTwoWithNine = multThree 9
 ghci> multTwoWithNine 2 3
@@ -65,11 +64,9 @@ Consider the function below:
 compareWithHundred :: (Num a, Ord a) => a -> Ordering  
 compareWithHundred x = compare 100 x 
 
-compareWithHundred' :: (Num a, Ord a) => a -> Ordering  
-compareWithHundred' = compare 100 
+dweebazoid :: (Num a, Ord a) => a -> Ordering  
+dweebazoid = compare 100 
 
--- Both of these work the same, but the last returns
--- a function that is then called to make the comparison
 
 -- for infix functions
 divideByTen :: (Floating a) => a -> a
@@ -89,9 +86,7 @@ function in haskell
 Try: 
 ghci> :t (-4)
 
-It's a function that takes a number and subtracts
-4 from it. But, for convenience, it just means 
-negative 4. 
+For convenience, it just means negative 4. 
 
 So, to clarify, if you want to make a function that 
 subtracts 4 from the number it gets as a parameter, 
@@ -111,6 +106,9 @@ and applies it twice
 
 applyTwice :: (a -> a) -> a -> a
 applyTwice f x = f (f x)
+
+applyThrice :: (a -> a) -> a -> a
+applyThrice f x = f (f (f x))
 
 {-
 The (a -> a) part of the type declaration is a function
@@ -223,10 +221,7 @@ Here's a slightly more readable version of quicksort
 
 quicksort :: (Ord a) => [a] -> [a]    
 quicksort [] = []    
-quicksort (x:xs) =     
-    let smallerSorted = quicksort (filter (<=x) xs)  
-        biggerSorted = quicksort (filter (>x) xs)   
-    in  smallerSorted ++ [x] ++ biggerSorted  
+quicksort (x:xs) =  quicksort (filter (<=x) xs) ++ [x] ++ quicksort (filter (>x) xs)
 
 -- Using filter to find the largest number under 100,000
 -- that's divisible by 3829

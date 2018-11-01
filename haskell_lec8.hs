@@ -20,11 +20,6 @@ flip' f = \x y -> f y x
 {-
 *folds*
 
-The common recursion pattern of combining a transformed head 
-(by some function or operation or other) to
-a recursive call to the tail has been encapsulated into the 
-fold function
-
 Fold takes a function that takes two parameters, an initial value 
 (called the accumulator), and a list.
 
@@ -74,10 +69,13 @@ map' f xs = foldr (\x acc -> f x : acc) [] xs
 
 -- For illustration, here's some standard library functions implemented with folds:
 maximum' :: (Ord a) => [a] -> a  
-maximum' = foldr1 (\x acc -> if x > acc then x else acc)  
+maximum' = foldr1 (\x acc -> if x > acc then x else acc) 
   
 reverse' :: [a] -> [a]  
 reverse' = foldl (\acc x -> x : acc) []  
+
+doNothing :: [a] -> [a]  
+doNothing = foldr (\x acc -> x : acc) []
   
 product' :: (Num a) => [a] -> a  
 product' = foldr1 (*)  
@@ -100,7 +98,6 @@ ghci> scanl (+) 0 [3,5,2,1]
 ghci> scanr (+) 0 [3,5,2,1]  
 ghci> scanl1 (\acc x -> if x > acc then x else acc) [3,4,5,3,7,9,2,1]  
 ghci> scanl (flip (:)) [] [3,2,1]  
-
 
 
 * $ *
@@ -186,12 +183,13 @@ Instead of including parameters when defining functions, we can often define
 funtions without mentioning them: that's point free style
 
 Consider:
-
-sum' :: (Num a) => [a] -> a     
-sum' xs = foldl (+) 0 xs     
-versus
-
-
+-}
+sum'' :: (Num a) => [a] -> a     
+sum'' xs = foldl (+) 0 xs     
+--versus
+sum''' :: (Num a) => [a] -> a  
+sum''' = foldl (+) 0
+{-
 fn x = ceiling (negate (tan (cos (max 50 x))))  
 versus
 fn = ceiling . negate . tan . cos . max 50  
