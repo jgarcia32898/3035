@@ -126,8 +126,21 @@ ghci> Car {company="Ford", model="Mustang", year=1967}
 Car {company = "Ford", model = "Mustang", year = 1967} 
 
 Type parameters
-:t
-consider this built in data type:
+
+List types use type parameters --- there is no [] type, but there is [Char] or 
+[Int]
+
+Another type that uses type parameters is Data.Map. This type is a hash or a 
+dictionary.
+
+Map k v
+has k type of keys, and v type of values, so we can have maps from any type to 
+any other type
+
+Note: never add typeclass constraints in data declarations (put them into functions 
+instead)
+
+Consider this built in data type:
 
 data Maybe a = Nothing | Just a  
 
@@ -154,19 +167,6 @@ ghci> :t Nothing
 Nothing :: Maybe a  
 ghci> Just 10 :: Maybe Double  
 Just 10.0  
-
-list types also use type parameters --- there is no [] type, but there is [Char] or 
-[Int]
-
-Another type that uses type parameters is Data.Map. This type is a hash or a 
-dictionary.
-
-Map k v
-has k type of keys, and v type of values, so we can have maps from any type to 
-any other type
-
-Note: never add typeclass constraints in data declarations (put them into functions 
-instead)
 
 
 A new type Vector
