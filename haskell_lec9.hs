@@ -57,7 +57,7 @@ of the Shape
 
 surface :: Shape -> Float  
 surface (Circle _ _ r) = pi * r ^ 2  
-surface (Rectangle x1 y1 x2 y2) = (abs $ x2 - x1) * (abs $ y2 - y1)  
+surface (Rectangle x1 y1 x2 y2) = (abs $ x2 - x1) * (abs $ y2 - y1) 
 
 {-
 Using it:
@@ -81,7 +81,7 @@ Rectangle 50.0 230.0 60.0 90.0
 Since constructors are functions, we can partially apply them
 
 ghci> 
-[Circle 10.0 20.0 4.0,Circle 10.0 20.0 5.0,Circle 10.0 20.0 6.0,Circle 10.0 20.0 6.0] 
+[Circle 10.0 20.0 4.0,Circle 10.0 20.0 5.0,Circle 10.0 20.0 6.0,Circle 10.0 20.0 7.0] 
 creating a concentric ring of circles
 
 Using a derived type (Point) to help define another (Shape) for more clarity:
@@ -294,4 +294,20 @@ ghci> 10 `treeElem` numsTree
 False  
 
 -}
+
+mkcc _ [] = []
+mkcc [] _ = []
+mkcc (x:xs) (y:ys) = x y : mkcc xs ys
+
+
+
+
+
+
+
+
+
+
+
+
 
