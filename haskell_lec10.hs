@@ -13,6 +13,7 @@ If you are using Mac or Linux, do nothing.
 
 Try putting this code into a separate haskell file, hello_world.hs
 -}
+
 main = putStrLn "hello, world" 
 
 {- 
@@ -120,7 +121,7 @@ name = getLine
 for the same reasons. It just creates an alias for getLine.
 
 Another note: In a script, IO actions can only be performed when 
-given the name of main or when they are inside a bigger IO option 
+given the name of main or when they are inside a bigger IO operation 
 composed with a do block. They always eventually fall under main.
 
 Let expressions can be used without in when inside do blocks:
@@ -137,26 +138,6 @@ main = do
 {-
 Note that the do lines are indented and lined up, and the let lines are also 
 indented and lined up
-
-Here's another example:
--}
-
-main = do   
-    line <- getLine  
-    if null line  
-        then return () 
-        else do  
-            putStrLn $ reverseWords line  
-            main  
-  
-reverseWords :: String -> String  
-reverseWords = unwords . map reverse . words  
-
-{-
-return here doesn't do what it does in imperative languages, it just takes
-a value and puts into an IO action. In our code, this action is carried out 
-(nothing is printed). Since there is nothing else to do in this branch, the 
-program stops.
 
 Note a recursive call to main when something is entered: this keeps the loop
 going for further entries
@@ -189,6 +170,7 @@ To see what that is, make a text file with some text (use this if you want)
 
  Then make a Haskell file named capslocker.hs and put this in it:
 -}
+
 import Control.Monad  
 import Data.Char  
   
@@ -222,7 +204,7 @@ import Data.Char
     
 main = do     
     contents <- readFile "text.txt"     
-    writeFile "textcaps.txt" (map toUpper contents) 
+    writeFile "textcaps2.txt" (map toUpper contents) 
 
 {-
 These are the simplest ways to do file IO. Learn You a Haskell has other,

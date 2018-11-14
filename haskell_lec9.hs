@@ -84,6 +84,9 @@ ghci>
 [Circle 10.0 20.0 4.0,Circle 10.0 20.0 5.0,Circle 10.0 20.0 6.0,Circle 10.0 20.0 7.0] 
 creating a concentric ring of circles
 
+As a list of functions (partially applied Circle constructors)
+[Circle 10.0 20.0,Circle 10.0 20.0,Circle 10.0 20.0,Circle 10.0 20.0] 
+
 Using a derived type (Point) to help define another (Shape) for more clarity:
 
 data Point = Point Float Float deriving (Show)  
@@ -168,6 +171,10 @@ Nothing :: Maybe a
 ghci> Just 10 :: Maybe Double  
 Just 10.0  
 
+getSqroot :: Int -> Maybe Int
+getSqroot x
+		| x < 0 = Nothing
+		|otherwise = Just (sqrt x)
 
 A new type Vector
 -}
@@ -185,8 +192,6 @@ scalarMult :: (Num t) => Vector t -> Vector t -> t
 
 
 {-
-Here we have to repeat the typeclasses in the constructors anyway, so it's redundant
-
 
 Using the constructors:
 
@@ -250,7 +255,6 @@ definition
 -}
 --The data type definition
 data Tree a = EmptyTree | Node a (Tree a) (Tree a) deriving (Show, Read, Eq) 
-
 
 -- Functions to insert elements into trees
 
